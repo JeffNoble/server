@@ -7,11 +7,13 @@ const db = config.get('mongoURI');
 
 
 const connectDB = async () => {
+    console.log('into db connect')
     try{
         await mongoose.connect(db, {
            useNewUrlParser: true,
            useUnifiedTopology: true,
-           useCreateIndex: true, 
+           useCreateIndex: true,
+           useFindAndModify: false, 
         });
 
         console.log('mongoDB is awake...')
